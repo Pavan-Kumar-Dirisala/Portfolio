@@ -582,6 +582,74 @@
     /* max-width: 500px; */
 }
 
+.platforms-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.platform-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 140px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: white;
+    text-decoration: none;
+}
+
+.platform-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00d4ff;
+}
+
+.platform-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+}
+.verify-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: linear-gradient(45deg, #00d4ff, #5f00cc);
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.verify-btn::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.4s ease;
+    z-index: 1;
+}
+
+.verify-btn:hover::before {
+    width: 100%;
+}
+
+.verify-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 20px #5f00cc, 0 0 40px #00d4ff;
+    background: linear-gradient(45deg, #5f00cc, #00d4ff);
+    color: #fff;
+}
+
 
     </style>
 </head>
@@ -873,6 +941,8 @@
     </div>
     <h3>AWS Certified Cloud Practitioner</h3>
     <p>Validated cloud fluency and foundational AWS knowledge, including services, security, and architecture best practices.</p>
+      <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
   </div>
 
   <div class="skill-card">
@@ -881,6 +951,8 @@
     </div>
     <h3>Salesforce Certified AI Associate</h3>
     <p>Certified by Salesforce for understanding of AI fundamentals, responsible AI principles, and practical AI use cases in Salesforce ecosystem.</p>
+      <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
   </div>
 
   <div class="skill-card">
@@ -889,6 +961,8 @@
     </div>
     <h3>Red Hat Certified Application Developer (EX183)</h3>
     <p>Certified by Red Hat in enterprise application development with open-source technologies and Linux systems.</p>
+      <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
   </div>
 
   <div class="skill-card">
@@ -898,6 +972,8 @@
     </div>
     <h3>Career Essentials in Generative AI</h3>
     <p>Completed Microsoft's LinkedIn Learning course on Generative AI covering applications and ethics of LLMs.</p>
+      <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
   </div>
 
   <div class="skill-card">
@@ -912,6 +988,8 @@
       <strong>Reading:</strong> 179 (B2)<br>
       <strong>Speaking:</strong> 167 (B2)<br>
       <strong>Writing:</strong> 151 (B1)<br>
+        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
     </p>
   </div>
 
@@ -923,38 +1001,52 @@
   <div class="skills-grid" style="margin-top: 20px;">
     <div class="skill-card">
       <div class="skill-icon">
-        <img src="https://img.icons8.com/ios-filled/50/00d4ff/code.png" alt="Python Icon" style="height: 50px;">
+        <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="Python Icon" style="height: 50px;">
+        <img src="https://img.icons8.com/?size=160&id=hGdCwhSHUe6L&format=png" alt="Python Icon" style="height: 50px;">
       </div>
       <h3>Learn Python</h3>
       <p>Completed beginner-to-intermediate course in Python covering syntax, loops, functions, and OOP concepts.</p>
+        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
     </div>
     <div class="skill-card">
       <div class="skill-icon">
-        <img src="https://img.icons8.com/ios-filled/50/00d4ff/codechef.png" alt="CodeChef Icon" style="height: 50px;">
+        <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Icon" style="height: 50px;">
       </div>
       <h3>500 Difficulty Level Practice</h3>
       <p>Certificate awarded by CodeChef for solving a wide range of algorithm problems rated at 500 difficulty level.</p>
+        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
     </div>
     <div class="skill-card">
       <div class="skill-icon">
-        <img src="https://img.icons8.com/ios-filled/50/00d4ff/html-5.png" alt="HTML Icon" style="height: 50px;">
+        <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="HTML Icon" style="height: 50px;">
+        <img src="./images/image-removebg-preview.png" alt="HTML Icon" style="height: 50px;">
       </div>
       <h3>Learn HTML / CSS & Intermediate CSS</h3>
       <p>Completed hands-on training in frontend fundamentals including responsive design, grid, and flexbox.</p>
+        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
     </div>
     <div class="skill-card">
       <div class="skill-icon">
-        <img src="https://img.icons8.com/ios-filled/50/00d4ff/c-programming.png" alt="C Programming Icon" style="height: 50px;">
+        <img src="./images/NPTEL.png" alt="C Programming Icon" style="height: 50px;">
+        <img src="https://img.icons8.com/?size=96&id=40670&format=png" alt="C Programming Icon" style="height: 50px;">
       </div>
       <h3>Problem Solving in C</h3>
       <p>Certificate from NPTEL for successful completion of programming and problem-solving course using C.</p>
+        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
     </div>
     <div class="skill-card">
       <div class="skill-icon">
-        <img src="https://img.icons8.com/ios-filled/50/00d4ff/udemy.png" alt="Udemy Icon" style="height: 50px;">
+        <img src="https://img.icons8.com/?size=96&id=SrnrBzTNf9el&format=png" alt="Udemy Icon" style="height: 50px;">
+        <img src="https://img.icons8.com/?size=160&id=hGdCwhSHUe6L&format=png" alt="Udemy Icon" style="height: 50px;">
       </div>
       <h3>Python Programming for Beginners</h3>
       <p>Completed a Udemy course covering basic Python, control flow, data structures, and mini-projects.</p>
+        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
+
     </div>
   </div>
 </section>
@@ -1036,6 +1128,42 @@
     </div>
   </div>
 </section>
+<section id="platforms" class="animate-on-scroll">
+  <h2 class="section-title">🌐 Global Platforms</h2>
+
+  <div class="platforms-grid">
+
+    <a href="https://www.codechef.com/users/pavankumard00" class="platform-card" target="_blank">
+      <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef">
+      <p>CodeChef</p>
+    </a>
+
+    <a href="https://leetcode.com/u/pavan_kumar_d_01/" class="platform-card" target="_blank">
+      <img src="https://img.icons8.com/?size=160&id=wDGo581Ea5Nf&format=png" alt="LeetCode">
+      <p>LeetCode</p>
+    </a>
+
+    <a href="https://codeforces.com/profile/Pavan_Kumar_D" class="platform-card" target="_blank">
+      <img src="https://img.icons8.com/?size=160&id=YSy0lU4Y0X4z&format=png" alt="CodeForces">
+      <p>CodeForces</p>
+    </a>
+
+    <a href="https://www.kaggle.com/pavankumardirisala" class="platform-card" target="_blank">
+      <img src="https://img.icons8.com/?size=160&id=bMncK0wGFANA&format=png" alt="Kaggle">
+      <p>Kaggle</p>
+    </a>
+
+    <a href="https://huggingface.co/PavanKumarD" class="platform-card" target="_blank">
+      <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Hugging Face" style="height: 50px;">
+      <p>Hugging Face</p>
+    </a>
+
+<a href="https://share.streamlit.io/user/pavan-kumar-dirisala" class="platform-card" target="_blank">
+      <img src="https://img.icons8.com/?size=96&id=Rffi8qeb2fK5&format=png" alt="Streamlit" style="height: 50px;">
+      <p>Streamlit</p>
+    </a>
+  </div>
+</section>
 
 
     <!-- Contact Section -->
@@ -1044,9 +1172,9 @@
         <div class="contact-content">
             <p style="font-size: 1.2rem; margin-bottom: 30px;">Ready to discuss AI/ML opportunities or collaborate on innovative projects?</p>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-link">📧 Email</a>
-                <a href="https://linkedin.com/in/yourprofile" class="contact-link">💼 LinkedIn</a>
-                <a href="https://github.com/yourprofile" class="contact-link">🔗 GitHub</a>
+                <a href="mailto:dirisalapavankumar12@gmail.com" class="contact-link">📧 Email</a>
+                <a href="https://www.linkedin.com/in/pavan-kumar-dirisala-523611281/" class="contact-link">💼 LinkedIn</a>
+                <a href="https://github.com/Pavan-Kumar-Dirisala" class="contact-link">🔗 GitHub</a>
                 <a href="#" class="contact-link">📄 Resume</a>
             </div>
         </div>
