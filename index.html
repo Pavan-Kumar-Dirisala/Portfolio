@@ -1,732 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavan Kumar Dirisala -- Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>Pavan Kumar Dirisala | AI Engineer Portfolio</title>
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Animated background particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: linear-gradient(45deg, #00d4ff, #ff00d4);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0; }
-            50% { transform: translateY(-100px) rotate(180deg); opacity: 1; }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 15px 50px;
-            background: rgba(0, 0, 0, 0.95);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            background: linear-gradient(45deg, #00d4ff, #ff00d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 5px #00d4ff); }
-            to { filter: drop-shadow(0 0 20px #ff00d4); }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #00d4ff;
-            transform: translateY(-2px);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #00d4ff, #ff00d4);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-align: center;
-            position: relative;
-        }
-
-        /* .hero-content {
-            max-width: 800px;
-            z-index: 2;
-        } */
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #ffffff, #00d4ff, #ff00d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: slideInUp 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.3s both;
-        }
-/* 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, #00d4ff, #ff00d4);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            animation: slideInUp 1s ease-out 0.6s both;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        } */
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 50px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 60px;
-            background: linear-gradient(45deg, #ffffff, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .skill-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 212, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .skill-card:hover::before {
-            opacity: 1;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-
-       .skill-icon {
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .skill-icon img {
-        height: 50px;
-        width: 50px;
-        filter: drop-shadow(0 0 5px #00d4ff);
-    }
-
-        .skill-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .skill-card p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-        }
-        .skill-points {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-.point-box {
-  /* background-color: #f0f0f0; */
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-}
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            position: relative;
-            /* position: relative; */
-  padding-bottom: 50px; /* Space for buttons */
-        }
-        .project-links {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.link-btn {
-  background: rgba(255, 255, 255, 0.1); /* Transparent glass look */
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-}
-
-.link-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-}
-
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(45deg, #00d4ff, #ff00d4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 30px;
-        }
-
-        .project-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .project-content p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tech-tag {
-            padding: 5px 15px;
-            background: rgba(0, 212, 255, 0.2);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #00d4ff;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            align-items: center;
-            margin-top: 50px;
-        }
-
-        .about-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #00d4ff, #ff00d4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-            color: white;
-            margin: 0 auto;
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .about-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .contact-link {
-            display: inline-block;
-            padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-link:hover {
-            background: linear-gradient(45deg, #00d4ff, #ff00d4);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Scroll animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-            
-            section {
-                padding: 50px 20px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-        /* Ensures the container allows right-side content to be visible */
-#education {
-  overflow: visible;
-  position: relative;
-}
-
-.timeline-entry {
-  position: relative;
-  margin-bottom: 30px;
-  padding-left: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: flex-start;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -12px;
-  top: 6px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-}
-
-.timeline-content {
-  color: #fff;
-  transition: transform 0.3s;
-  max-width: 60%;
-}
-
-.extra-info {
-  position: absolute;
-  top: 0;
-  left: calc(50% + 20px);
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.05));
-  border: 1px solid rgba(0, 212, 255, 0.4);
-  padding: 15px 20px;
-  min-width: 220px;
-  color: #fff;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(20px);
-  transition: all 0.3s ease;
-  z-index: 10;
-  backdrop-filter: blur(6px);
-  border-radius: 12px;
-  max-width: 260px;
-  word-wrap: break-word;
-  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.15);
-}
-
-.timeline-entry:hover .extra-info {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
-  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
-}
-
-.extra-info h4 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 16px;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
-  padding-bottom: 5px;
-}
-
-.extra-info ul {
-  padding-left: 18px;
-  margin: 0;
-  list-style: disc;
-}
-
-.extra-info li {
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.85);
-}
-.hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.hero-image img {
-    width: 270px;
-    height: 400px;
-    /* border-radius: ; */
-    /* object-fit: cover; */
-    /* box-shadow: 0 0 15px #00d4ff; */
-}
-
-.hero-text {
-    flex: 1;
-    color: white;
-    /* max-width: 500px; */
-}
-
-.platforms-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.platform-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 1rem;
-    width: 140px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    color: white;
-    text-decoration: none;
-}
-
-.platform-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #00d4ff;
-}
-
-.platform-card img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 0.5rem;
-}
-.verify-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 16px;
-    background: linear-gradient(45deg, #00d4ff, #5f00cc);
-    color: #fff;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.verify-btn::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.2);
-    transition: width 0.4s ease;
-    z-index: 1;
-}
-
-.verify-btn:hover::before {
-    width: 100%;
-}
-
-.verify-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 20px #5f00cc, 0 0 40px #00d4ff;
-    background: linear-gradient(45deg, #5f00cc, #00d4ff);
-    color: #fff;
-}
-
-/* Achievement Banner */
-       /* Main Achievement / Research Card */
-.achievement-banner {
-    max-width: 80%;
-    width: 80%;
-    margin: 40px auto;
-    padding: 30px;
-
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.1));
-    border: 2px solid rgba(102, 126, 234, 0.3);
-    border-radius: 20px;
-
-    backdrop-filter: blur(20px);
-    text-align: center;
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
-    transition: 0.3s ease;
-}
-
-/* Hover effect (premium feel) */
-.achievement-banner:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
-}
-
-/* Title */
-.achievement-banner h3 {
-    font-size: 1.8rem;
-    color: #667eea;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-/* Text */
-.achievement-banner p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-}
-
-/* Certificate / Button section */
-.achievement-banner .certificate {
-    margin-top: 25px;
-}
-
-/* Button styling */
-.achievement-banner .contact-link {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    transition: 0.3s ease;
-}
-
-/* Button hover */
-.achievement-banner .contact-link:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
-}
-
-/* Glow animation */
-@keyframes pulse {
-    from { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
-    to { box-shadow: 0 0 40px rgba(102, 126, 234, 0.6); }
-}
-    .certificate img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 35px rgba(102, 126, 234, 0.7);
-}
-
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+
     <!-- Particles Background -->
     <div class="particles" id="particles"></div>
 
@@ -734,880 +18,236 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">Pavan Kumar | AI/ML Portfolio</div>
+
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-content">
+    <section id="home" class="hero">
 
-        <div class="hero-image">
-            <img src="./images/emoji.webp" alt="Pavan Kumar Dirisala">
+        <div class="hero-content">
+
+            <div class="hero-image">
+                <img src="./images/emoji.webp" alt="Pavan Kumar Dirisala">
+            </div>
+
+            <div class="hero-text">
+
+                <h1>
+                    Hi, I'm
+                    <span class="highlight">
+                        Pavan Kumar Dirisala
+                    </span>
+                </h1>
+
+                <h2>
+                    AI Engineer | Generative AI & Agentic AI Developer
+                </h2>
+
+                <p>
+                    Passionate about building intelligent AI systems using
+                    Machine Learning, Generative AI, Large Language Models (LLMs),
+                    Retrieval-Augmented Generation (RAG), and Multi-Agent Architectures.
+                    I develop scalable, production-ready solutions that transform
+                    complex problems into impactful real-world applications.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="projects.html" class="contact-link">
+                        🚀 View Projects
+                    </a>
+
+                    <a href="contact.html" class="contact-link">
+                        📩 Let's Connect
+                    </a>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="hero-text">
-            <h1>Hi, I'm <span class="highlight">Pavan Kumar Dirisala</span></h1>
+    </section>
 
-            <h2>
-                AI Engineer | Generative AI & Agentic AI Developer
-            </h2>
+<!-- =====================================
+     QUICK STATS
+===================================== -->
 
-            <p>
-                Passionate about building intelligent AI systems using Machine Learning,
-                Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG),
-                and Multi-Agent Architectures. I develop scalable, production-ready solutions that
-                transform complex problems into impactful real-world applications.
-            </p>
+<section class="animate-on-scroll">
 
-            <div class="hero-buttons">
-                <a href="#projects" class="btn primary-btn">🚀 View Projects</a>
-                <a href="#contact" class="btn secondary-btn">📩 Let's Connect</a>
-            </div>
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>15+</h3>
+            <p>AI & ML Projects</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>9.46</h3>
+            <p>B.Tech CGPA</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>🥈</h3>
+            <p>2<sup>nd</sup> in AiroThon 2025</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>1</h3>
+            <p>Research(preprint)</p>
         </div>
 
     </div>
+
 </section>
 
-<div class="achievement-banner">
-  <h3>🏆 Recent Achievement</h3>
-  <p>
-    <strong>🥈 2nd Place Winner – AiroThon 2025 (Agentic AI Hackathon)</strong><br>
-    Secured <strong>2nd place</strong> among nationwide finalists at 
-    <em>Ramada by Wyndham, Gurugram</em>, organized by <strong>Airo Digital Labs</strong>.<br><br>
-    Our team <strong>Trinetra</strong> (Pavan Kumar Dirisala, Sai Ranga Madhushka Tummala, Harika Koduri) 
-    was recognized for building <strong>FinBot Connect</strong> – an 
-    AI-powered BFSI chatbot that integrates <strong>RAG + LLMs</strong> for 
-    secure, personalized financial assistance.<br><br>
-    This achievement highlights our expertise in <strong>AI/ML innovation, BFSI solutions, 
-    and real-world deployment</strong>.
-  </p>
+<!-- =====================================
+     FEATURED ACHIEVEMENTS
+===================================== -->
 
-  <!-- Certificate -->
-  <div class="certificate">
-    <a href="Pavan Kumar Dirisala (Trinetra) (1) (1).pdf" target="_blank" class="contact-link">🏅 Certificate</a>
-  </div>
-</div>
+<section class="animate-on-scroll">
 
-<div class="achievement-banner">
-  <h3>📄 Research Publication</h3>
-  <p>
-    <strong>FinBot Connect: A Secure Retrieval-Augmented Generation Framework for Banking Assistants</strong><br>
-    <em>SSRN Preprint, Feb 2026</em><br>
-    <strong>Authors:</strong> Pavan Kumar Dirisala, Sai Ranga Madhushka Tummala<br><br>
+    <h2 class="section-title">
+        Featured Achievements
+    </h2>
 
-    Designed and developed a <strong>secure, context-aware RAG-based AI system</strong> 
-    for banking applications. The architecture integrates <strong>user authentication, 
-    permission-aware semantic retrieval, and LLM-based response generation</strong> 
-    to ensure accurate and personalized financial assistance.<br><br>
+    <div class="projects-grid">
 
-    Achieved significant <strong>reduction in hallucinations</strong> and improved response 
-    relevance compared to rule-based and LLM-only systems, making it suitable for 
-    <strong>real-world BFSI deployments</strong>.
-  </p>
+        <!-- Airothon -->
 
-  <div class="certificate">
-    <a href="https://ssrn.com/abstract=6219653" target="_blank" class="contact-link">
-      📑 View Paper
-    </a>
-  </div>
-</div>
-    <!-- About Section -->
-    <section id="about" class="animate-on-scroll">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-image">🤖</div>
-            <div class="about-text">
-                <p>I’m an AI/ML developer with hands-on experience building scalable, data-driven solutions in computer vision, NLP, and predictive analytics. I specialize in Python, XGBoost, TensorFlow, and Streamlit—designing ML pipelines that deliver real-world impact.</p>
+        <div class="project-card">
+
+            <div class="project-image">
+                🏆
+            </div>
+
+            <div class="project-content">
+
+                <h3>
+                    AiroThon 2025 Runner-Up
+                </h3>
+
+                <p>
+                    Secured <strong>2nd Place</strong> among nationwide finalists
+                    at India's leading Agentic AI Hackathon organized by
+                    Airo Digital Labs.
+                </p>
+
+                <p>
+                    Built <strong>FinBot Connect</strong>,
+                    an AI-powered BFSI assistant using
+                    Retrieval-Augmented Generation (RAG),
+                    LLMs, and secure user-aware retrieval.
+                </p>
+
+                <div class="project-tech">
+
+                    <span class="tech-tag">Agentic AI</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">LLMs</span>
+                    <span class="tech-tag">FinTech</span>
+
+                </div>
+
                 <br>
-                <p>From deploying AI apps on the cloud to experimenting with cutting-edge LLMs and RAG-based systems, I combine technical depth with a passion for solving practical problems. I'm actively seeking global opportunities to contribute to next-gen AI products.</p>
+
+                <a href="Pavan Kumar Dirisala (Trinetra) (1) (1).pdf"
+                   target="_blank"
+                   class="contact-link">
+
+                    🏅 View Certificate
+
+                </a>
+
             </div>
+
         </div>
-    </section>
 
-<!-- Skills Section -->
+        <!-- Publication -->
 
-<section id="skills" class="animate-on-scroll">
-  <h2 class="section-title">Core Expertise</h2>
+        <div class="project-card">
 
-  <div class="skills-grid">
-<!-- Programming -->
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://cdn-icons-png.flaticon.com/128/17359/17359748.png" alt="Programming">
-  </div>
-  <h3>Programming</h3>
-  <div class="skill-points">
-    <div class="point-box">Python</div>
-    <div class="point-box">Java</div>
-    <div class="point-box">C</div>
-    <div class="point-box">SQL</div>
-  </div>
-</div>
-
-<!-- AI & Machine Learning -->
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://cdn-icons-png.flaticon.com/128/17924/17924751.png" alt="AI Technologies" style="height:50px;">
-  </div>
-  <h3>AI & Machine Learning</h3>
-  <div class="skill-points">
-    <div class="point-box">Machine Learning</div>
-    <div class="point-box">Deep Learning</div>
-    <div class="point-box">CNNs</div>
-    <div class="point-box">Transformers</div>
-    <div class="point-box">LLMs</div>
-    <div class="point-box">Prompt Engineering</div>
-  </div>
-</div>
-
-<!-- Agentic AI -->
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://cdn-icons-png.flaticon.com/128/14657/14657058.png" alt="Agentic AI">
-  </div>
-  <h3>Agentic AI</h3>
-  <div class="skill-points">
-    <div class="point-box">LangGraph</div>
-    <div class="point-box">LangChain</div>
-    <div class="point-box">Multi-Agent Systems</div>
-    <div class="point-box">RAG</div>
-    <div class="point-box">Vector Search</div>
-    <div class="point-box">Pydantic AI</div>
-  </div>
-</div>
-
-<!-- Frameworks -->
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://cdn-icons-png.flaticon.com/128/18565/18565750.png" alt="Frameworks">
-  </div>
-  <h3>Frameworks & Development</h3>
-  <div class="skill-points">
-    <div class="point-box">Django</div>
-    <div class="point-box">FastAPI</div>
-    <div class="point-box">Streamlit</div>
-    <div class="point-box">HTML</div>
-    <div class="point-box">CSS</div>
-    <div class="point-box">JavaScript</div>
-  </div>
-</div>
-
-<!-- Data Science -->
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://cdn-icons-png.flaticon.com/128/2821/2821637.png" alt="Data Science">
-  </div>
-  <h3>Data Science</h3>
-  <div class="skill-points">
-    <div class="point-box">Pandas</div>
-    <div class="point-box">NumPy</div>
-    <div class="point-box">Scikit-learn</div>
-    <div class="point-box">XGBoost</div>
-    <div class="point-box">Matplotlib</div>
-    <div class="point-box">Data Analysis</div>
-  </div>
-</div>
-
-<!-- Tools & Platforms -->
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://cdn-icons-png.flaticon.com/128/1055/1055683.png" alt="Tools">
-  </div>
-  <h3>Tools & Platforms</h3>
-  <div class="skill-points">
-    <div class="point-box">Git</div>
-    <div class="point-box">GitHub</div>
-    <div class="point-box">VS Code</div>
-    <div class="point-box">Jupyter</div>
-    <div class="point-box">Google Colab</div>
-    <div class="point-box">Hugging Face</div>
-  </div>
-</div>
-
-<!-- Cloud -->
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://cdn-icons-png.flaticon.com/128/11523/11523163.png" alt="Cloud">
-  </div>
-  <h3>Cloud & Deployment</h3>
-  <div class="skill-points">
-    <div class="point-box">AWS Cloud Practitioner</div>
-    <div class="point-box">PythonAnywhere</div>
-    <div class="point-box">Streamlit Cloud</div>
-  </div>
-</div>
-
-<!-- Professional Skills -->
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://cdn-icons-png.flaticon.com/128/8869/8869371.png" alt="Professional Skills">
-  </div>
-  <h3>Professional Skills</h3>
-  <div class="skill-points">
-    <div class="point-box">Leadership</div>
-    <div class="point-box">Communication</div>
-    <div class="point-box">Team Collaboration</div>
-    <div class="point-box">Problem Solving</div>
-  </div>
-</div>
-
-  </div>
-</section>
-
-
-
-    <!-- Projects Section -->
-<!-- Projects Section with Git & Demo Buttons -->
-<section id="projects" class="animate-on-scroll">
-  <h2 class="section-title">Featured Projects</h2>
-  <div class="projects-grid">
-   <div class="project-card">
-  <div class="project-image">🔬</div>
-  
-  <div class="project-content">
-    <h3>Multi-Agent Research Assistant</h3>
-    
-    <p>
-      Developed a LangGraph-powered Multi-Agent Research System that performs research planning, web search, source validation, summarization, report generation, and automated quality review. Includes a Streamlit dashboard with real-time workflow monitoring and PDF/JSON export support.
-    </p>
-    
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">LangGraph</span>
-      <span class="tech-tag">LangChain</span>
-      <span class="tech-tag">GPT-5</span>
-      <span class="tech-tag">Streamlit</span>
-    </div>
-  </div>
-
-  <div class="project-links">
-    <a href="https://github.com/Pavan-Kumar-Dirisala/azentrix-fullstack-task2" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-      <div class="project-card">
-  <div class="project-image">📄</div>
-
-  <div class="project-content">
-    <h3>DocMind – Context-Aware Document Q&A Bot</h3>
-
-    <p>
-      Developed a Retrieval-Augmented Generation (RAG) system that enables users to upload PDF documents or text and ask natural language questions. Built with LangChain, FAISS, transformer embeddings, and GPT-5-mini, featuring source citations, semantic retrieval, and context-grounded responses.
-    </p>
-
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">LangChain</span>
-      <span class="tech-tag">FAISS</span>
-      <span class="tech-tag">GPT-5-mini</span>
-      <span class="tech-tag">Streamlit</span>
-    </div>
-  </div>
-
-  <div class="project-links">
-    <a href="https://github.com/Pavan-Kumar-Dirisala/azentrix-fullstack-task1-" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-<div class="project-card">
-  <div class="project-image">💬</div>
-  <div class="project-content">
-    <h3>FinBot Connect – AI-Powered BFSI Chatbot</h3>
-    <p>
-      Developed a Retrieval-Augmented Generation (RAG) chatbot for BFSI using 
-      FAISS, SentenceTransformers, and OpenRouter LLMs. Integrated with 
-      <strong>Django</strong> (frontend) + <strong>FastAPI</strong> (backend), enabling 
-      secure login, personalized banking queries, and document-based Q&A. 
-      Tested on 1,000+ queries with <strong>85%+ accuracy</strong>. 
-      <em>🥈 2nd Place – AiroThon 2025</em>.
-    </p>
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">Django</span>
-      <span class="tech-tag">FastAPI</span>
-      <span class="tech-tag">RAG + LLM</span>
-      <span class="tech-tag">2025</span>
-    </div>
-  </div>
-  <div class="project-links">
-    
-    <a href="https://2200030495.pythonanywhere.com" target="_blank" class="link-btn">🚀 Live Demo</a>
-  </div>
-</div>
-    <div class="project-card">
-  <div class="project-image">🔢</div>
-  <div class="project-content">
-    <h3>AI Digit Recognition App</h3>
-    <p>Built an AI-powered digit recognition app using a Convolutional Neural Network. Users can draw digits and get instant predictions. Deployed with Streamlit on the cloud.</p>
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">TensorFlow</span>
-      <span class="tech-tag">Streamlit</span>
-      <span class="tech-tag">CNN</span>
-    </div>
-  </div>
-  <div class="project-links">
-    <a href="https://ai-digit-recognition-mzzyefjfittj6xypadrrmz.streamlit.app/" target="_blank" class="link-btn">🔗 Demo</a>
-    <a href="https://github.com/Pavan-Kumar-Dirisala/AI-digit-recognition" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-
-
-    <div class="project-card">
-  <div class="project-image">💳</div>
-  <div class="project-content">
-    <h3>Credit Score Classification - Paisabazaar</h3>
-    <p>Built an ML model to classify credit scores into Risk, Standard, and Good categories. Deployed an interactive Streamlit app with real-time predictions and insights.</p>
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">XGBoost</span>
-      <span class="tech-tag">LightGBM</span>
-      <span class="tech-tag">Streamlit</span>
-    </div>
-  </div>
-  <div class="project-links">
-    <a href="https://creditworthinessapp.streamlit.app" target="_blank" class="link-btn">🔗 Demo</a>
-    <a href="https://github.com/Pavan-Kumar-Dirisala/Paisabazaar-Credit-Score-Classification" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-
-    <div class="project-card">
-      <div class="project-image">💳</div>
-      <div class="project-content">
-        <h3>Credit Card Fraud Detection</h3>
-        <p>Designed a fraud detection system analyzing 1M+ transaction records. XGBoost achieved 98% accuracy, reducing false positives by 30%.</p>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">XGBoost</span>
-          <span class="tech-tag">Random Forest</span>
-          
-        </div>
-      </div>
-      <div class="project-links">
-        <a href="https://credit-card-fraud-detection-by-pavan.streamlit.app" target="_blank" class="link-btn">🔗 Demo</a>
-        <a href="https://github.com/Pavan-Kumar-Dirisala/Credit-Card-Fraud-Detection" target="_blank" class="link-btn">💻 GitHub</a>
-      </div>
-    </div>
-
-    
-<div class="project-card">
-  <div class="project-image"><img src="https://img.icons8.com/?size=96&id=OYtBxIlJwMGA&format=png"></div>
-  <div class="project-content">
-    <h3>PhonePe Pulse Data Analysis Dashboard</h3>
-    <p>Developed an interactive dashboard using Streamlit to visualize and analyze digital payment trends across India using PhonePe Pulse data. Features include state-wise insights, transaction patterns, insurance analytics, and top-performer rankings.</p>
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">Pandas</span>
-      <span class="tech-tag">Plotly</span>
-      <span class="tech-tag">Streamlit</span>
-      <span class="tech-tag">MySQL</span>
-    </div>
-  </div>
-  <div class="project-links">
-    <a href="https://phonepeplusdataanalysisdashboard.streamlit.app" target="_blank" class="link-btn">🔗 Demo</a>
-    <a href="https://github.com/Pavan-Kumar-Dirisala/PhonePe-DataAnalysis" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-
-    
-
-<div class="project-card">
-  <div class="project-image">🧠</div>
-  <div class="project-content">
-    <h3>Brain Tumor MRI Classification</h3>
-    <p>
-      Built a Deep Learning model to classify MRI scans into 4 tumor categories
-      (Glioma, Meningioma, Pituitary, No Tumor). A custom CNN achieved
-      <strong>89% accuracy</strong>, outperforming transfer learning models like DenseNet121.
-      Deployed a user-friendly Streamlit app on Hugging Face for real-time predictions.
-    </p>
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">PyTorch</span>
-      <span class="tech-tag">Streamlit</span>
-      <span class="tech-tag">Hugging Face</span>
-    </div>
-  </div>
-  <div class="project-links">
-    <a href="https://braintumer.streamlit.app" target="_blank" class="link-btn">🚀 Live Demo</a>
-    <a href="https://github.com/Pavan-Kumar-Dirisala/Brain-Tumor-Classification" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-
-
-   <div class="project-card">
-  <div class="project-image">🛍️</div>
-  <div class="project-content">
-    <h3>Shopper Spectrum: Customer Segmentation & Product Recommendations</h3>
-    <p>
-      Built an end-to-end ML solution for e-commerce: segmented customers using
-      <strong>RFM + KMeans</strong> into High-Value, Loyal, Medium, and At-Risk groups,
-      and developed an <strong>item-based collaborative filtering</strong> engine to
-      recommend products in real-time. Deployed as an interactive Streamlit web app.
-    </p>
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">Scikit-learn</span>
-      <span class="tech-tag">Cosine Similarity</span>
-      <span class="tech-tag">Streamlit</span>
-    </div>
-  </div>
-  <div class="project-links">
-    <a href="https://mntyf3csgfdbjauil4mdx5.streamlit.app" target="_blank" class="link-btn">🚀 Live Demo</a>
-    <a href="https://github.com/Pavan-Kumar-Dirisala/Shopper-Spectrum-Customer-Segmentation-and-Product-Recommendations-in-E-Commerce" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-
-
-<div class="project-card">
-  <div class="project-image">🐟</div>
-  <div class="project-content">
-    <h3>Fish Image Classification with Deep Learning</h3>
-    <p>
-      Built a deep learning system to classify fish species into 11 categories 
-      using <strong>ResNet18</strong>, <strong>MobileNetV2</strong>, and a 
-      <strong>custom CNN</strong>. Deployed an interactive 
-      <strong>Streamlit app</strong> with Hugging Face integration for 
-      real-time predictions and confidence scores.
-    </p>
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">PyTorch</span>
-      <span class="tech-tag">Streamlit</span>
-      <span class="tech-tag">Hugging Face</span>
-    </div>
-  </div>
-  <div class="project-links">
-    <a href="https://fishimageclassification.streamlit.app" target="_blank" class="link-btn">🚀 Live Demo</a>
-    <a href="https://github.com/Pavan-Kumar-Dirisala/Fish_image_classification" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-
-
-    <div class="project-card">
-  <div class="project-image">🍴</div>
-  <div class="project-content">
-    <h3>Local Food Wastage Management System</h3>
-    <p>
-      Developed an interactive <strong>Streamlit dashboard</strong> with 
-      <strong>Python + SQLite</strong> to connect surplus food providers with 
-      receivers. Features include <strong>food listings, claim management, and 
-      analytics dashboards</strong> (meal trends, city-wise demand, provider/receiver 
-      insights) to reduce food wastage and support communities.
-    </p>
-    <div class="project-tech">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">SQLite</span>
-      <span class="tech-tag">Streamlit</span>
-      <span class="tech-tag">Matplotlib</span>
-    </div>
-  </div>
-  <div class="project-links">
-    <a href="https://local-food-wastage-management-system-pm.streamlit.app" target="_blank" class="link-btn">🚀 Live Demo</a>
-    <a href="https://github.com/Pavan-Kumar-Dirisala/Local-Food-Wastage-Management-System" target="_blank" class="link-btn">💻 GitHub</a>
-  </div>
-</div>
-
-
-  </div>
-</section>
-
-<!-- Certifications Section -->
-<section id="certifications" class="animate-on-scroll">
-  <h2 class="section-title">Certifications</h2>
-
-  <!-- Global Certifications -->
-<h3 style="color: #00d4ff; font-size: 2rem; margin-top: 40px; text-align: center;">🌍 Global Certifications</h3>
-<div class="skills-grid" style="margin-top: 20px;">
-  
-  <div class="skill-card">
-    <div class="skill-icon">
-      <img src="https://cdn-icons-png.flaticon.com/128/14777/14777106.png" alt="AWS Icon" style="height: 50px;">
-    </div>
-    <h3>AWS Certified Cloud Practitioner</h3>
-    <p>Validated cloud fluency and foundational AWS knowledge, including services, security, and architecture best practices.</p>
-      <a href="https://www.credly.com/badges/4387825a-e1e6-4773-9fa5-70c0c97808cd/public_url" class="verify-btn" target="_blank">🔗 Verify</a>
-
-  </div>
-
-  <div class="skill-card">
-    <div class="skill-icon">
-      <img src="./images/image.png" alt="Salesforce Icon" style="height: 50px;">
-    </div>
-    <h3>Salesforce Certified AI Associate</h3>
-    <p>Certified by Salesforce for understanding of AI fundamentals, responsible AI principles, and practical AI use cases in Salesforce ecosystem.</p>
-      <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
-
-  </div>
-
-  <div class="skill-card">
-    <div class="skill-icon">
-      <img src="./images/image copy.png" alt="Red Hat Icon" style="height: 50px;">
-    </div>
-    <h3>Red Hat Certified Application Developer (EX183)</h3>
-    <p>Certified by Red Hat in enterprise application development with open-source technologies and Linux systems.</p>
-      <a href="https://www.credly.com/badges/88489dce-7513-4561-bf2a-1ea1d573771e/public_url" class="verify-btn" target="_blank">🔗 Verify</a>
-
-  </div>
-
-  <div class="skill-card">
-    <div class="skill-icon">
-      <img src="https://img.icons8.com/?size=160&id=MR3dZdlA53te&format=png" alt="AI Icon" style="height: 50px;">
-      <img src="https://img.icons8.com/?size=96&id=22989&format=png" alt="AI Icon" style="height: 50px;">
-    </div>
-    <h3>Career Essentials in Generative AI</h3>
-    <p>Completed Microsoft's LinkedIn Learning course on Generative AI covering applications and ethics of LLMs.</p>
-      <a href="https://www.linkedin.com/learning/certificates/6221cc616397c8ec73f6bbbcd93520343ecba8cbd288def4b5e80f76b2096471" class="verify-btn" target="_blank">🔗 Verify</a>
-
-  </div>
-
-  <div class="skill-card">
-    <div class="skill-icon">
-      <img src="./images/lingua.png" alt="Linguaskill Icon" style="height: 50px;">
-    </div>
-    <h3>Linguaskill English Proficiency Test (B2 Level)</h3>
-    <p><strong>Candidate:</strong> Pavan Kumar Dirisala<br>
-      <strong>Institution:</strong> KLEF University<br>
-      <strong>Overall CEFR Level:</strong> B2 (Independent User)<br>
-      <strong>Listening:</strong> 161 (B2)<br>
-      <strong>Reading:</strong> 179 (B2)<br>
-      <strong>Speaking:</strong> 167 (B2)<br>
-      <strong>Writing:</strong> 151 (B1)<br>
-        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
-
-    </p>
-  </div>
-  <div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://img.icons8.com/?size=128&id=EFLbMfpKrZze&format=png" alt="Automation Anywhere Icon" style="height: 50px;">
-  </div>
-  <h3>Automation Anywhere Essentials Certification – 2024</h3>
-  <p>Successfully completed the foundational Automation Anywhere RPA course, covering bots, workflows, and automation pipelines.</p>
-  <a href="https://certificates.automationanywhere.com/ca7d21fa-f7ee-440d-b99f-8a9aa6330002#acc.HJEaptSs" class="verify-btn" target="_blank">🔗 Verify</a>
-</div>
-
-
-</div>
-
-
-  <!-- Learning Achievements -->
-  <h3 style="color: #ff00d4; font-size: 2rem; margin-top: 60px; text-align: center;">📘 Learning Achievements</h3>
-  <div class="skills-grid" style="margin-top: 20px;">
-    <div class="skill-card">
-      <div class="skill-icon">
-        <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="Python Icon" style="height: 50px;">
-        <img src="https://img.icons8.com/?size=160&id=hGdCwhSHUe6L&format=png" alt="Python Icon" style="height: 50px;">
-      </div>
-      <h3>Learn Python</h3>
-      <p>Completed beginner-to-intermediate course in Python covering syntax, loops, functions, and OOP concepts.</p>
-        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
-
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">
-        <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Icon" style="height: 50px;">
-      </div>
-      <h3>500 Difficulty Level Practice</h3>
-      <p>Certificate awarded by CodeChef for solving a wide range of algorithm problems rated at 500 difficulty level.</p>
-        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
-
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">
-        <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="HTML Icon" style="height: 50px;">
-        <img src="./images/image-removebg-preview.png" alt="HTML Icon" style="height: 50px;">
-      </div>
-      <h3>Learn HTML / CSS & Intermediate CSS</h3>
-      <p>Completed hands-on training in frontend fundamentals including responsive design, grid, and flexbox.</p>
-        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
-
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">
-        <img src="./images/NPTEL.png" alt="C Programming Icon" style="height: 50px;">
-        <img src="https://img.icons8.com/?size=96&id=40670&format=png" alt="C Programming Icon" style="height: 50px;">
-      </div>
-      <h3>Problem Solving in C</h3>
-      <p>Certificate from NPTEL for successful completion of programming and problem-solving course using C.</p>
-        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
-
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">
-        <img src="https://img.icons8.com/?size=96&id=SrnrBzTNf9el&format=png" alt="Udemy Icon" style="height: 50px;">
-        <img src="https://img.icons8.com/?size=160&id=hGdCwhSHUe6L&format=png" alt="Udemy Icon" style="height: 50px;">
-      </div>
-      <h3>Python Programming for Beginners</h3>
-      <p>Completed a Udemy course covering basic Python, control flow, data structures, and mini-projects.</p>
-        <a href="https://verification-link.com" class="verify-btn" target="_blank">🔗 Verify</a>
-
-    </div>
-    <div class="skill-card">
-  <div class="skill-icon">
-    <img src="./images/simplilearn.png" alt="Certificate Icon" style="height: 50px;">
-    <img src="./images/rag3.png" alt="Certificate Icon" style="height: 50px;">
-
-  </div>
-  <h3>RAG Course for Beginners</h3>
-  <p>Completed the **RAG (Retrieval-Augmented Generation) Course** focusing on advanced NLP techniques for enhancing long-term dependencies and multi-turn dialogues in AI models.</p>
-  <!-- <p><strong>Certificate Code:</strong> 8565387 | <strong>Completion Date:</strong> July 3rd, 2025</p> -->
-  <a href="https://simpli-web.app.link/e/6pM7f9KIHUb" class="verify-btn" target="_blank">🔗 Verify</a>
-</div>
-<div class="skill-card">
-  <div class="skill-icon">
-    <img src="https://img.icons8.com/?size=160&id=Ciqmoc93oy5u&format=png" alt="Coursera Icon" style="height: 50px;">
-    <img src="https://logolook.net/wp-content/uploads/2022/11/Duke-University-Seal.png" alt="Coursera Icon" style="height: 50px;">
-  </div>
-  <h3>Introduction to Retrieval Augmented Generation (RAG)</h3>
-  <p>Completed a Coursera guided project offered by Duke University, focused on building embeddings, vector databases, and implementing a complete RAG system using Llamafile.</p>
-  <a href="https://coursera.org/share/9e53cc32db8b7bd33907d82ef53ed8bc" class="verify-btn" target="_blank">🔗 Verify</a>
-</div>
-
-
-  </div>
-</section>
-
-<!-- Experience Timeline -->
-<section id="experience" class="animate-on-scroll" style="margin-bottom: 40px;">
-  <h2 class="section-title">Experience Timeline</h2>
-  <div style="position: relative; margin-top: 40px;">
-    <div style="border-left: 3px solid #00d4ff; padding-left: 20px; position: relative;">
-
-      <div style="margin-bottom: 30px; position: relative;">
-        <div style="position: absolute; left: -12px; top: 3px; background: #00d4ff; width: 16px; height: 16px; border-radius: 50%;"></div>
-        <h3 style="color: #ffffff; margin-left: 10px;">AI/ML Engineering Intern – LabMentix</h3>
-        <p style="color: rgba(255, 255, 255, 0.8); margin-left: 10px;">Jun 2025 – Nov 2025</p>
-        <p style="color: rgba(255, 255, 255, 0.7); margin-left: 10px;">Worked on building AI/ML pipelines, deployed models using Streamlit and Flask, optimized model performance, and contributed to production-grade ML solutions.</p>
-        
-       <!-- View Certificate Button -->
-        <a href="images/Pavan Kumar Dirisala Certificate .pdf" 
-          target="_blank" 
-          class="contact-link"
-          style="display: inline-block; margin-left: 10px; margin-top: 10px; padding: 8px 16px; 
-                  background-color: #00d4ff; color: #000; border-radius: 5px; text-decoration: none; 
-                  font-weight: bold;">
-          📄 View Certificate
-        </a>
-    </div>
-  </div>
-</section>
-
-<!-- Education Timeline -->
-<section id="education" class="animate-on-scroll">
-  <h2 class="section-title">Education Timeline</h2>
-  <div style="position: relative; margin-top: 40px;">
-    <div style="border-left: 3px solid #00d4ff; padding-left: 20px; position: relative;">
-
-      <!-- Most Recent First -->
-      <div class="timeline-entry">
-        <div class="timeline-dot" style="background: #00ff99;"></div>
-        <div class="timeline-content">
-          <h3>B.Tech – KL University</h3>
-          <p>2022 – Present</p>
-          <p>Pursuing CSE with AI & Intelligent Process Automation specialization.</p>
-        </div>
-        <div class="extra-info">
-          <h4>Academic Highlights</h4>
-          <ul>
-            <li>CGPA : 9.61</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-entry">
-        <div class="timeline-dot" style="background: #03a9f4;"></div>
-        <div class="timeline-content">
-          <h3>Intermediate – Sri Chaitanya Junior Collage</h3>
-          <p>2019 – 2021</p>
-          <p>Completed BiPC (Biology, Physics, Chemistry) stream with strong academic performance.</p>
-        </div>
-        <div class="extra-info">
-          <h4>Achievements</h4>
-          <ul>
-            <li>Secured 94.3% aggregate</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-entry">
-  <div class="timeline-dot" style="background: #ff5722;"></div>
-  <div class="timeline-content">
-    <h3>Schooling – Bhashyam Blooms, Guntur (CBSE)</h3>
-    <p>2015 – 2019</p>
-    <p>Completed 7th to 10th grade with 91.2% overall percentage. Strong foundation in Science and Mathematics.</p>
-  </div>
-  <div class="extra-info">
-    <h4>Achievements</h4>
-    <ul>
-      <li>🥈 2nd Place – State-level Guitar Competition</li>
-      <li>🏅 2nd Place – Inter-School Mathematics Olympiad</li>
-    </ul>
-  </div>
-</div>
-
-
-    </div>
-  </div>
-</section>
-<section id="platforms" class="animate-on-scroll">
-  <h2 class="section-title">🌐 Global Platforms</h2>
-
-  <div class="platforms-grid">
-
-    <a href="https://www.codechef.com/users/pavankumard00" class="platform-card" target="_blank">
-      <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef">
-      <p>CodeChef</p>
-    </a>
-
-    <a href="https://leetcode.com/u/pavan_kumar_d_01/" class="platform-card" target="_blank">
-      <img src="https://img.icons8.com/?size=160&id=wDGo581Ea5Nf&format=png" alt="LeetCode">
-      <p>LeetCode</p>
-    </a>
-
-    <a href="https://codeforces.com/profile/Pavan_Kumar_D" class="platform-card" target="_blank">
-      <img src="https://img.icons8.com/?size=160&id=YSy0lU4Y0X4z&format=png" alt="CodeForces">
-      <p>CodeForces</p>
-    </a>
-    <a href="https://www.naukri.com/code360/profile/b2aa2876-290e-4bf8-b136-cc971b0b21d3" class="platform-card" target="_blank">
-      <img src="https://img.icons8.com/?size=96&id=20810&format=png" alt="Naukri Code360">
-      <p>Naukri Code360</p>
-    </a>
-
-
-    <a href="https://www.kaggle.com/pavankumardirisala" class="platform-card" target="_blank">
-      <img src="https://img.icons8.com/?size=160&id=bMncK0wGFANA&format=png" alt="Kaggle">
-      <p>Kaggle</p>
-    </a>
-
-    <a href="https://huggingface.co/PavanKumarD" class="platform-card" target="_blank">
-      <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Hugging Face" style="height: 50px;">
-      <p>Hugging Face</p>
-    </a>
-
-<a href="https://share.streamlit.io/user/pavan-kumar-dirisala" class="platform-card" target="_blank">
-      <img src="https://img.icons8.com/?size=96&id=Rffi8qeb2fK5&format=png" alt="Streamlit" style="height: 50px;">
-      <p>Streamlit</p>
-    </a>
-  </div>
-</section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="animate-on-scroll">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Ready to discuss AI/ML opportunities or collaborate on innovative projects?</p>
-            <div class="contact-links">
-                <a href="mailto:dirisalapavankumar12@gmail.com" class="contact-link">📧 Email</a>
-                <a href="https://www.linkedin.com/in/pavan-kumar-dirisala-523611281/" class="contact-link">💼 LinkedIn</a>
-                <a href="https://github.com/Pavan-Kumar-Dirisala" class="contact-link">🔗 GitHub</a>
-                <a href="Pavan_Kumar_Dirisala_TFG copy.pdf" target="_blank" class="contact-link">📄 Resume</a>
+            <div class="project-image">
+                📄
             </div>
+
+            <div class="project-content">
+
+                <h3>
+    SSRN Research Preprint
+</h3>
+
+                <p>
+                    <strong>
+                        FinBot Connect: A Secure Retrieval-Augmented
+                        Generation Framework for Banking Assistants
+                    </strong>
+                </p>
+
+                <p>
+    Authored an SSRN preprint proposing
+    FinBot Connect, a secure RAG-based
+    banking assistant focused on personalized,
+    context-aware financial support.
+</p>
+
+                <div class="project-tech">
+
+                    <span class="tech-tag">Research</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">LLMs</span>
+                    <span class="tech-tag">Banking AI</span>
+
+                </div>
+
+                <br>
+
+                <a href="https://ssrn.com/abstract=6219653"
+                   target="_blank"
+                   class="contact-link">
+
+                    📑 View Paper
+
+                </a>
+
+            </div>
+
         </div>
-    </section>
 
-    <script>
-        // Create animated particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+    </div>
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
+</section>
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+<!-- =====================================
+     CURRENT FOCUS
+===================================== -->
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<section class="animate-on-scroll">
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <div class="achievement-banner">
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, observerOptions);
+        <h3>
+            🚀 Current Focus
+        </h3>
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
+        <p>
+            Building next-generation AI systems using
+            Agentic AI, Multi-Agent Architectures,
+            Retrieval-Augmented Generation (RAG),
+            Large Language Models, and Autonomous Research Systems.
+        </p>
 
-        // Initialize particles
-        createParticles();
+    </div>
 
-        // Add interactive cursor effect
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.querySelector('.cursor');
-            if (!cursor) {
-                const newCursor = document.createElement('div');
-                newCursor.className = 'cursor';
-                newCursor.style.cssText = `
-                    position: fixed;
-                    width: 20px;
-                    height: 20px;
-                    background: radial-gradient(circle, rgba(0,212,255,0.8) 0%, transparent 70%);
-                    border-radius: 50%;
-                    pointer-events: none;
-                    z-index: 9999;
-                    transition: transform 0.1s ease;
-                `;
-                document.body.appendChild(newCursor);
-            }
-            
-            const cursorElement = document.querySelector('.cursor');
-            cursorElement.style.left = e.clientX - 10 + 'px';
-            cursorElement.style.top = e.clientY - 10 + 'px';
-        });
+</section>
 
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${rate}px)`;
-            }
-        });
-    </script>
 </body>
 </html>
